@@ -9,6 +9,6 @@ import App from './App.vue'
 import router from './router'
 
 createApp(App)
-  .use(ElementPlus, { size: 'small', zIndex: 3000 })
+  .use(ElementPlus, { zIndex: 3000 })
   .use(router)
   .mount('#app')

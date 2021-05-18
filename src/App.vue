@@ -1,7 +1,7 @@
 <template>
   <el-container id="nav">
     <el-header class="rocli-header">
-      <i class="el-icon-timer" /> Ro-CLI
+      💥 Ro-X
     </el-header>
     <el-main>
       <el-tabs v-model="activeName">
@@ -56,6 +56,7 @@ export default {
 
 .rocli-header {
   position: relative;
+  height: auto !important;
   line-height: 2;
   text-align: left;
   font-size: 20px;

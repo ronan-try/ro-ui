@@ -1,37 +1,47 @@
 <template>
   <div class="tools_board">
-    <el-button
-      class="tools_board-btn"
-      @click="onClickMr"
-    >
-      Make a mr / pr
-    </el-button>
-    <el-button
-      class="tools_board-btn"
-      @click="onClickFork"
-    >
-      Fork？？
-    </el-button>
-    <el-button
-      class="tools_board-btn"
-      @click="onClickNginxEdit"
-    >
-      Nginx - Edite
-    </el-button>
-    <el-button
-      class="tools_board-btn"
-      @click="onClickNginxStart"
-    >
-      onClickNginxStart
-    </el-button>
-    <el-button
-      class="tools_board-btn"
-      @click="onClickNginxStop"
-    >
-      onClickNginxStop
-    </el-button>
-
-    
+    <div>
+      <h3 class="tools_board-h3">Git:</h3>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickMr"
+      >
+        Make a MR /PR
+      </el-button>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickFork"
+      >
+        Git Flow-Fork
+      </el-button>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickFork"
+      >
+        Git Flow-Sync
+      </el-button>
+    </div>
+    <div>
+      <h3 class="tools_board-h3">Nginx:</h3>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickNginxEdit"
+      >
+        Edit Config
+      </el-button>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickNginxStart"
+      >
+        Start
+      </el-button>
+      <el-button
+        class="tools_board-btn"
+        @click="onClickNginxStop"
+      >
+        Stop
+      </el-button>
+    </div>
   </div>
 </template>
 
@@ -86,19 +96,12 @@ export default defineComponent({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+.tools_board {
+  text-align: left;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+.tools_board-h3 {
   display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  padding-right: 10px;
 }
 </style>
