@@ -107,7 +107,7 @@
 <script>
 import { toRaw, reactive, onMounted } from 'vue';
 // enums
-import * as MsgType from '@ronan-try/cli-const/es/wsMessageType'
+import * as MsgType from '@ronan-try/cli-const/es/wsMessageType'; // '@ronan-try/cli-const/es/wsMessageType'
 // composables
 import vscodePostMessage from '../../../composables/vscodePostMessage';
 
@@ -145,45 +145,45 @@ export default {
 
     onMounted(() => {
       const handler = () => {
-        ws.send(toJSONString({ type: MsgType.cacheProjects }));
+        ws.send(toJSONString({ type: MsgType.CACHE_PROJECTS }));
         ws.onmessage = (event) => {
           const objMsg = toJSONParse(event.data);
 
-          if (objMsg.type === MsgType.cacheProjects) {
+          if (objMsg.type === MsgType.CACHE_PROJECTS) {
             this.projects = objMsg.data;
-          } else if (objMsg.type === MsgType.addTargetUpstream) {
+          } else if (objMsg.type === MsgType.ADD_TARGET_UPSTREAM) {
             if (objMsg.data.success) {
               this.checkTarget = true;
               ws.send(toJSONString({
-                type: MsgType.fetchRocliUpstream,
+                type: MsgType.FETCH_ROCLI_UPSTREAM,
                 data: toRaw(state.curProject),
               }));
             } else {
               console.error('啊呀，坏了');
             }
-          } else if (objMsg.type === MsgType.fetchRocliUpstream) {
+          } else if (objMsg.type === MsgType.FETCH_ROCLI_UPSTREAM) {
             if (objMsg.data.success) {
               this.checkFetch = true;
               ws.send(toJSONString({
-                type: MsgType.gitBranchR,
+                type: MsgType.GIT_BRANCH_R,
                 data: toRaw(state.curProject),
               }));
             } else {
               console.error('啊啊啊啊，坏了');
             }
-          } else if (objMsg.type === MsgType.gitBranchR) {
+          } else if (objMsg.type === MsgType.GIT_BRANCH_R) {
             if (objMsg.data.success) {
               this.checkBranches = true;
               this.branches = objMsg.data.branches;
             } else {
               console.error('啊啊啊啊， 坏了');
             }
-          } else if (objMsg.type === MsgType.gitFork) {
+          } else if (objMsg.type === MsgType.GIT_FORK) {
             if (objMsg.data.success) {
               state.checkFork = true;
 
               ws.send(toJSONString({
-                type: MsgType.gitTrack,
+                type: MsgType.GIT_TRACK,
                 data: {
                   project: toRaw(state.curProject),
                   localBranch: this.inputedLocalBranch,
@@ -192,7 +192,7 @@ export default {
             } else {
               console.error('啊啊啊啊啊，坏了');
             }
-          } else if (objMsg.type === MsgType.gitTrack) {
+          } else if (objMsg.type === MsgType.GIT_TRACK) {
             if (objMsg.data.success) {
               this.checkTrack = true;
               this.onOpenVSCode();
@@ -219,7 +219,7 @@ export default {
     }
     function onForking() {
       ws.send(toJSONString({
-        type: MsgType.gitFork,
+        type: MsgType.GIT_FORK,
         data: {
           project: toRaw(state.curProject),
           localBranch: this.inputedLocalBranch,
@@ -229,13 +229,13 @@ export default {
     }
     function onOpenVSCode() {
       ws.send(toJSONString({
-        type: MsgType.openWithVSCode,
+        type: MsgType.OPEN_WITH_VSCODE,
         data: toRaw(state.curProject),
       }));
     }
     function onOpenFolder() {
       ws.send(toJSONString({
-        type: MsgType.openWithFolder,
+        type: MsgType.OPEN_WITH_FOLDER,
         data: toRaw(state.curProject),
       }));
     }
