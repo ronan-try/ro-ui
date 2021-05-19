@@ -15,6 +15,12 @@
         </el-tab-pane>
       </el-tabs>
     </el-main>
+    <el-select v-model="dd">
+      <el-option
+        v-for="i of ['1', '2']"
+        :key="i"
+      />
+    </el-select>
   </el-container>
 </template>
 
@@ -27,6 +33,7 @@ export default {
     return {
       links: routes,
       activeName: '/',
+      dd: '2',
     };
   },
 };
