@@ -15,12 +15,19 @@
         </el-tab-pane>
       </el-tabs>
     </el-main>
-    <el-select v-model="dd">
+    <el-select v-model="dialogVisible">
       <el-option
-        v-for="i of ['1', '2']"
+        v-for="i of [true, false]"
         :key="i"
+        :label="i"
+        :value="i"
       />
     </el-select>
+    <el-dialog
+      v-model="dialogVisible"
+    >
+      太惨了
+    </el-dialog>
   </el-container>
 </template>
 
@@ -33,7 +40,7 @@ export default {
     return {
       links: routes,
       activeName: '/',
-      dd: '2',
+      dialogVisible: false,
     };
   },
 };
@@ -45,7 +52,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -54,7 +60,6 @@ export default {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {

@@ -1,47 +1,45 @@
 <template>
   <div class="tools_board">
-    <div>
-      <h3 class="tools_board-h3">Git:</h3>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickMr"
-      >
-        Make a MR /PR
-      </el-button>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickFork"
-      >
-        Git Flow-Fork
-      </el-button>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickFork"
-      >
-        Git Flow-Sync
-      </el-button>
-    </div>
-    <div>
-      <h3 class="tools_board-h3">Nginx:</h3>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickNginxEdit"
-      >
-        Edit Config
-      </el-button>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickNginxStart"
-      >
-        Start
-      </el-button>
-      <el-button
-        class="tools_board-btn"
-        @click="onClickNginxStop"
-      >
-        Stop
-      </el-button>
-    </div>
+    <h3 class="tools_board-h1">Git:</h3>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickMr"
+    >
+      Make a MR /PR
+    </el-button>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickFork"
+    >
+      Git Flow-Fork
+    </el-button>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickFork"
+    >
+      Git Flow-Sync
+    </el-button>
+  </div>
+  <div class="tools_board">
+    <h3 class="tools_board-h1">Nginx:</h3>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickNginxEdit"
+    >
+      Edit Config
+    </el-button>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickNginxStart"
+    >
+      Start
+    </el-button>
+    <el-button
+      class="tools_board-btn"
+      @click="onClickNginxStop"
+    >
+      Stop
+    </el-button>
   </div>
 </template>
 
@@ -100,7 +98,11 @@ export default defineComponent({
 .tools_board {
   text-align: left;
 }
-.tools_board-h3 {
+.tools_card {
+  display: block;
+  min-width: 200px;
+}
+.tools_board-h1 {
   display: inline-block;
   padding-right: 10px;
 }
